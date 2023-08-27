@@ -1,11 +1,14 @@
 # frozen_string_literal: true
 
 RSpec.describe EmojiClock do
-  it "has a version number" do
-    expect(EmojiClock::VERSION).not_to be nil
-  end
+  describe "#at" do
+    context "when given a Time object" do
+      it "returns the time" do
+        time = Time.now
+        expect(EmojiClock.at(time)).to eq(time)
+      end
+    end
 
-  it "does something useful" do
-    expect(false).to eq(true)
+    
   end
 end
