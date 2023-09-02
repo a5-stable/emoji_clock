@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 class EmojiClock
-  attr_accessor :hour, :minute
+  attr_reader :hour, :minute
   extend ClockVariety
+  EMOJI_CLOCK_CODE_POINT = 0x1F550
 
   def initialize(hour, minute)
     @hour = hour
@@ -12,12 +13,13 @@ class EmojiClock
   def fetch_emoji
     h = ((hour % 12).nonzero? || 12) - 1
     m = minute >= 30 ? 12 : 0
+    code_point = EMOJI_CLOCK_CODE_POINT + h + m
 
-    sprintf("%c", EMOJI_CLOCK_CODE_POINT + h + m)
+    [code_point].pack('U')
   end
 
   def fetch_exact_emoji
-    fetch_emoji if minute == 0 || minute == 30
+    fetch_emoji if [0, 30].include?(minute)
   end
 
   def self.at(*args, exact: false)
