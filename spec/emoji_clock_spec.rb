@@ -9,8 +9,18 @@ RSpec.describe "EmojiClock" do
         expect(EmojiClock.at(time)).to eq("🕛")
       end
 
+      it "returns the correct emoji for 12:15" do
+        time = Time.new(2020, 1, 1, 0, 15, 0)
+        expect(EmojiClock.at(time)).to eq("🕧")
+      end
+
       it "returns the correct emoji for 12:30" do
         time = Time.new(2020, 1, 1, 0, 30, 0)
+        expect(EmojiClock.at(time)).to eq("🕧")
+      end
+
+      it "returns the correct emoji for 12:15" do
+        time = Time.new(2020, 1, 1, 0, 15, 0)
         expect(EmojiClock.at(time)).to eq("🕧")
       end
 
