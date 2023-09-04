@@ -8,7 +8,6 @@ require_relative "emoji_clock/time_parser"
 class EmojiClock
   attr_reader :hour, :minute
   extend ClockVariety
-  EMOJI_CLOCK_CODE_POINT = 0x1F550
 
   def initialize(hour, minute)
     @hour = hour
@@ -21,6 +20,10 @@ class EmojiClock
 
   def fetch_exact_emoji
     fetcher.exact_fetch
+  end
+
+  def self.now(exact: false)
+    at(Time.now, exact: exact)
   end
 
   def self.at(*args, exact: false)
