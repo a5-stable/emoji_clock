@@ -1,5 +1,6 @@
 # EmojiClock
 
+Welcome to EmojiClock!
 This is a cute little gem that will display the current time in (the nearest) emoji clock format.
 
 ## Installation
