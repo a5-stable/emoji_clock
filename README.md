@@ -17,9 +17,39 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
 You can get the nearest emoji clock by calling the `EmojiClock.now` method.
 ```
-EmojiClock.at(Time.new(2021, 1, 1, 12, 30))
+EmojiClock.now
 
 # => "🕧"
+```
+
+You can also get the emoji clock for a specific time by calling the `EmojiClock.at` method.
+```
+time = Time.new(2021, 1, 1, 12, 30)
+EmojiClock.at(time)
+
+# => "🕧"
+```
+
+Since there are no clock emojis for times other than 00 minutes and 30 minutes, EmojiClock will return the nearest emoji clock for such times.
+```
+time = Time.new(2021, 1, 1, 12, 10)
+EmojiClock.at(time)
+
+# => "🕛"
+
+time = Time.new(2021, 1, 1, 12, 50)
+EmojiClock.at(time)
+
+# => "🕐"
+```
+
+If you want to get emoji only when the time is exactly on the hour or half hour, you can pass `:exact` as an option.
+EmojiClock will return `nil` if the time is not exactly on the hour or half hour.
+```
+time = Time.new(2021, 1, 1, 12, 10)
+EmojiClock.at(time, exact: true)
+
+# => nil
 ```
 
 ## Development
