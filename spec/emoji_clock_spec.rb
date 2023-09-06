@@ -52,4 +52,16 @@ RSpec.describe "EmojiClock" do
       end
     end
   end
+
+  describe "#now" do
+    # 今の時刻を固定
+    before do
+      allow(Time).to receive(:now).and_return(Time.new(2020, 1, 1, 0, 0, 0))
+    end
+
+    it "returns the correct emoji clock" do
+      expect(EmojiClock.now).to eq("🕛")
+    end
+  end
+
 end
