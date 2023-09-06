@@ -1,10 +1,9 @@
 # EmojiClock
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/emoji_clock`. To experiment with that code, run `bin/console` for an interactive prompt.
+Welcome to EmojiClock!
+This is a cute little gem that will display the current time in (the nearest) emoji clock format.
 
 ## Installation
-
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
 
 Install the gem and add to the application's Gemfile by executing:
 
@@ -16,7 +15,12 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
 ## Usage
 
-TODO: Write usage instructions here
+You can get the nearest emoji clock by calling the `EmojiClock.now` method.
+```
+EmojiClock.at(Time.new(2021, 1, 1, 12, 30))
+
+# => "🕧"
+```
 
 ## Development
 

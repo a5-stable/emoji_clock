@@ -22,6 +22,10 @@ class EmojiClock
     fetcher.exact_fetch
   end
 
+  def self.now(exact: false)
+    at(Time.now, exact: exact)
+  end
+
   def self.at(*args, exact: false)
     time = TimeParser.parse(*args)
     clock = new(time.hour, time.min)
